@@ -5,12 +5,39 @@
 		<meta charset="utf-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<style>
+	    .gauge_container {
+	        text-align: left;
+	        height: 450px;
+	        display: inline-block;
+	        border: 1px solid #ccc;
+	        margin: 40px 5px 0 5px;
+	    }
+	
+	    .gauge {
+	        width: 300px;
+	        height: 200px;
+	        display: inline-block;
+	        -webkit-transform: translate3d(0, 0, 0);
+	    }
+    	</style>
 		<script>
 			function updateScroll(){
 				var element = document.getElementById("chat");
 				element.scrollTop = element.scrollHeight;
 			}
+			
+			function toggleFunction() {
+    			var x = document.getElementById('analytics');
+			    if (x.style.visibility === 'hidden') {
+        		x.style.visibility = 'visible';
+    		} else {
+        		x.style.visibility = 'hidden';
+    		}
+			}
 		</script>
+		<script src="static/scripts/raphael-2.1.4.min.js"></script>
+    	<script src="static/scripts/justgage.js"></script>
 		<script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 		<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
 		<link href="/static/stylesheets/styles.css" rel="stylesheet">
@@ -40,11 +67,11 @@
 			</main>
 			<aside>
 				<section class="faq">
-					<h3>Form &#38; FAQ</h3>
+					<!-- <h3>Form &#38; FAQ</h3> -->
 					<div>{% autoescape false %}{{form}}{% endautoescape %}</div>
 				</section>			
 				<section class="tips">
-					<h3>Tips</h3>
+					<!-- <h3>Tips</h3> -->
 					<div>{% autoescape false %}{{tips}}{% endautoescape %}</div>
 				</section>
 			</aside>
